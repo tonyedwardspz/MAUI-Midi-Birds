@@ -1,47 +1,9 @@
-﻿using System;
-using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Maui.Media;
-using CommunityToolkit.Mvvm.Input;
-using Commons.Music.Midi;
-using System.Diagnostics;
-using MauiMidiBirds.Services;
-using CommunityToolkit.Maui.Views;
-using MauiMidiBirds.Models;
-using MauiMidiBirds.Views;
+﻿namespace MauiMidiBirds.ViewModels;
 
-namespace MauiMidiBirds.ViewModels;
-
-public partial class LandingViewModel : ObservableObject
+public partial class LandingViewModel : BaseViewModel
 {
-
-	[ObservableProperty] private string ?latestKey;
-	internal string controllerName = "APC Key 25";
-
-	[ObservableProperty] public MediaSource birdSong;
-
     public LandingViewModel()
 	{
-		Debug.WriteLine(Data.Birds.Count);
-		LatestKey = "C";
-        
-		var access = MidiAccessManager.Default;
-		var inputs = access.Inputs;
-		var deviceNumber = inputs.Where(i => i.Name == controllerName).FirstOrDefault();
-		var input = access.OpenInputAsync(deviceNumber.Id).Result;
-		input.MessageReceived += Input_MessageRecieved;
 		
     }
-
-    private void Input_MessageRecieved(object? sender, MidiReceivedEventArgs e)
-    {
-		Debug.WriteLine("Message Recieved");
-		Debug.WriteLine($"{e.Data[0].ToString()} - {e.Data[1].ToString()} - {e.Data[2].ToString()}");
-		LatestKey = e.Data[1].ToString();
-
-		if (e.Data[2] > 0)
-		{
-            BirdSong = MediaSource.FromResource("robin.mp3");
-        }
-    }
 }
-
