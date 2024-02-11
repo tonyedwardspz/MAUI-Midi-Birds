@@ -2,12 +2,6 @@
 
 	<PropertyGroup>
 		<TargetFrameworks>net8.0-maccatalyst</TargetFrameworks>
-
-		<!-- Note for MacCatalyst:
-		The default runtime is maccatalyst-x64, except in Release config, in which case the default is maccatalyst-x64;maccatalyst-arm64.
-		When specifying both architectures, use the plural <RuntimeIdentifiers> instead of the singular <RuntimeIdentifier>.
-		The Mac App Store will NOT accept apps with ONLY maccatalyst-arm64 indicated;
-		either BOTH runtimes must be indicated or ONLY macatalyst-x64. -->
 		<RuntimeIdentifiers>maccatalyst-arm64</RuntimeIdentifiers>
 
 		<OutputType>Exe</OutputType>
@@ -55,6 +49,7 @@
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
 		<PackageReference Include="managed-midi" Version="1.10.1" />
+		<PackageReference Include="CommunityToolkit.Maui.MediaElement" Version="3.0.1" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -87,12 +82,37 @@
 	  <None Remove="Resources\Images\starling.jpg" />
 	  <None Remove="Resources\Images\tawny-owl.jpg" />
 	  <None Remove="Resources\Images\wood-pigeon.jpg" />
+	  <None Remove="Resources\Audio\" />
+	  <None Remove="Resources\Audio\blackbird.mp3" />
+	  <None Remove="Resources\Audio\blue-tit.mp3" />
+	  <None Remove="Resources\Audio\buzzard.mp3" />
+	  <None Remove="Resources\Audio\chaffinch.mp3" />
+	  <None Remove="Resources\Audio\coal-tit.mp3" />
+	  <None Remove="Resources\Audio\collared-dove.mp3" />
+	  <None Remove="Resources\Audio\dunnock.mp3" />
+	  <None Remove="Resources\Audio\goldfinch.mp3" />
+	  <None Remove="Resources\Audio\gray-heron.mp3" />
+	  <None Remove="Resources\Audio\great-tit.mp3" />
+	  <None Remove="Resources\Audio\herring-gull.mp3" />
+	  <None Remove="Resources\Audio\house-sparrow.mp3" />
+	  <None Remove="Resources\Audio\jackdaw.mp3" />
+	  <None Remove="Resources\Audio\long-tailed-tit.mp3" />
+	  <None Remove="Resources\Audio\placeholder.wav" />
+	  <None Remove="Resources\Audio\raven.mp3" />
+	  <None Remove="Resources\Audio\robin.mp3" />
+	  <None Remove="Resources\Audio\rook.mp3" />
+	  <None Remove="Resources\Audio\ruddy-turnstone.mp3" />
+	  <None Remove="Resources\Audio\starling.mp3" />
+	  <None Remove="Resources\Audio\tawny-owl.mp3" />
+	  <None Remove="Resources\Audio\wood-pigeon.mp3" />
+	  <None Remove="Resources\Audio\wren.mp3" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Folder Include="ViewModels\" />
 	  <Folder Include="Views\" />
 	  <Folder Include="Models\" />
 	  <Folder Include="Resources\Images\" />
+	  <Folder Include="Resources\Audio\" />
 	</ItemGroup>
 	<ItemGroup>
 	  <BundleResource Include="Resources\Images\wren.jpg" />
@@ -120,5 +140,28 @@
 	  <BundleResource Include="Resources\Images\starling.jpg" />
 	  <BundleResource Include="Resources\Images\tawny-owl.jpg" />
 	  <BundleResource Include="Resources\Images\wood-pigeon.jpg" />
+	  <BundleResource Include="Resources\Audio\blackbird.mp3" />
+	  <BundleResource Include="Resources\Audio\blue-tit.mp3" />
+	  <BundleResource Include="Resources\Audio\buzzard.mp3" />
+	  <BundleResource Include="Resources\Audio\chaffinch.mp3" />
+	  <BundleResource Include="Resources\Audio\coal-tit.mp3" />
+	  <BundleResource Include="Resources\Audio\collared-dove.mp3" />
+	  <BundleResource Include="Resources\Audio\dunnock.mp3" />
+	  <BundleResource Include="Resources\Audio\goldfinch.mp3" />
+	  <BundleResource Include="Resources\Audio\gray-heron.mp3" />
+	  <BundleResource Include="Resources\Audio\great-tit.mp3" />
+	  <BundleResource Include="Resources\Audio\herring-gull.mp3" />
+	  <BundleResource Include="Resources\Audio\house-sparrow.mp3" />
+	  <BundleResource Include="Resources\Audio\jackdaw.mp3" />
+	  <BundleResource Include="Resources\Audio\long-tailed-tit.mp3" />
+	  <BundleResource Include="Resources\Audio\placeholder.wav" />
+	  <BundleResource Include="Resources\Audio\raven.mp3" />
+	  <BundleResource Include="Resources\Audio\robin.mp3" />
+	  <BundleResource Include="Resources\Audio\rook.mp3" />
+	  <BundleResource Include="Resources\Audio\ruddy-turnstone.mp3" />
+	  <BundleResource Include="Resources\Audio\starling.mp3" />
+	  <BundleResource Include="Resources\Audio\tawny-owl.mp3" />
+	  <BundleResource Include="Resources\Audio\wood-pigeon.mp3" />
+	  <BundleResource Include="Resources\Audio\wren.mp3" />
 	</ItemGroup>
 </Project>

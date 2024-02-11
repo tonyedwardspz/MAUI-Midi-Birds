@@ -19,12 +19,11 @@ public partial class LandingViewModel : ObservableObject
 		Debug.WriteLine(Data.Birds.Count);
 		LatestKey = "C";
         
-        var access = MidiAccessManager.Default;
+		var access = MidiAccessManager.Default;
 		var inputs = access.Inputs;
 		var deviceNumber = inputs.Where(i => i.Name == controllerName).FirstOrDefault();
 		var input = access.OpenInputAsync(deviceNumber.Id).Result;
 		input.MessageReceived += Input_MessageRecieved;
-		
     }
 
     private void Input_MessageRecieved(object? sender, MidiReceivedEventArgs e)
