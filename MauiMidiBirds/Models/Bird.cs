@@ -7,4 +7,12 @@ public class Bird
     public string ImageCredit {get; set;}
     public string SongCredit {get; set;}
     public int Sightings {get; set;}
+    public string Image
+    {
+        get
+        {
+            return CommonName.ToLower().Replace(" ", "_") + ".png";
+        }
+    }
+
 }
