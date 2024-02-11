@@ -11,13 +11,13 @@ public partial class LandingViewModel : ObservableObject
 
 	public LandingViewModel()
 	{
-
+		LatestKey = "C";
 	}
 
 	[RelayCommand]
 	void ReadKey()
 	{
-		LatestKey = "C";
+		LatestKey = "B";
 	}
 }
 
