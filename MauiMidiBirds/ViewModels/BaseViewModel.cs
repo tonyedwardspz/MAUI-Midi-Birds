@@ -11,6 +11,7 @@ public partial class BaseViewModel : ObservableObject
     internal string controllerName = "APC Key 25";
     [ObservableProperty] private string? latestKey;
     [ObservableProperty] public MediaSource? birdSong;
+    [ObservableProperty] public bool connected;
 
     public BaseViewModel()
 	{
@@ -24,9 +25,16 @@ public partial class BaseViewModel : ObservableObject
         var access = MidiAccessManager.Default;
         var inputs = access.Inputs;
         var deviceNumber = inputs.Where(i => i.Name == controllerName).FirstOrDefault();
-        var input = access.OpenInputAsync(deviceNumber?.Id).Result;
-        Debug.WriteLine($"Connected to {controllerName} Midi Controller");
-        input.MessageReceived += Input_MessageRecieved;
+        if (deviceNumber != null)
+        {
+            var input = access.OpenInputAsync(deviceNumber.Id).Result;
+            Debug.WriteLine($"Connected to {controllerName} Midi Controller");
+            input.MessageReceived += Input_MessageRecieved;
+            Connected = true;
+        } else
+        {
+            Connected = false;
+        }
     }
 
     private void Input_MessageRecieved(object? sender, MidiReceivedEventArgs e)
@@ -41,4 +49,3 @@ public partial class BaseViewModel : ObservableObject
         }
     }
 }
-
