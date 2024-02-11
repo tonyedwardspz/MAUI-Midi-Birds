@@ -11,6 +11,10 @@
         <Label
             Text="{Binding LatestKey, StringFormat='Latest Key: {0}'}"
             Style="{StaticResource Headline}"/>
+        
+        <Label
+            Text="{Binding LatestBird, StringFormat='Latest Bird: {0}'}"
+            Style="{StaticResource SubHeadline}"/>
 
         <toolkit:MediaElement
             x:Name="BirdNoise"

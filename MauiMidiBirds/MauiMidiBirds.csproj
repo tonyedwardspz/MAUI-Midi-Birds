@@ -83,7 +83,6 @@
 	  <None Remove="Resources\Images\starling.jpg" />
 	  <None Remove="Resources\Images\tawny-owl.jpg" />
 	  <None Remove="Resources\Images\wood-pigeon.jpg" />
-	  <None Remove="Resources\Audio\" />
 	  <None Remove="Resources\Raw\blackbird.mp3" />
 	  <None Remove="Resources\Raw\blue-tit.mp3" />
 	  <None Remove="Resources\Raw\buzzard.mp3" />
@@ -113,7 +112,6 @@
 	  <Folder Include="Views\" />
 	  <Folder Include="Models\" />
 	  <Folder Include="Resources\Images\" />
-	  <Folder Include="Resources\Audio\" />
 	</ItemGroup>
 	<ItemGroup>
 	  <BundleResource Include="Resources\Images\wren.jpg" />

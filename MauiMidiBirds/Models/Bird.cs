@@ -11,8 +11,14 @@ public class Bird
     {
         get
         {
-            return CommonName.ToLower().Replace(" ", "_") + ".png";
+            return CommonName.ToLower().Replace(" ", "-") + ".png";
         }
     }
-
+    public string Song
+    {
+        get
+        {
+            return CommonName.ToLower().Replace(" ", "-") + ".mp3";
+        }
+    }
 }
