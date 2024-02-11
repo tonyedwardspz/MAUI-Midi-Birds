@@ -3,6 +3,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Commons.Music.Midi;
 using System.Diagnostics;
+using MauiMidiBirds.Services;
 
 namespace MauiMidiBirds.ViewModels;
 
@@ -15,8 +16,8 @@ public partial class LandingViewModel : ObservableObject
 
     public LandingViewModel()
 	{
+		Debug.WriteLine(Data.Birds.Count);
 		LatestKey = "C";
-
         
         var access = MidiAccessManager.Default;
 		var inputs = access.Inputs;
