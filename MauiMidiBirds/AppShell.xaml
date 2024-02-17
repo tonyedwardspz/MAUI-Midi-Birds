@@ -5,13 +5,39 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:MauiMidiBirds"
     xmlns:views="clr-namespace:MauiMidiBirds.Views"
-    Shell.FlyoutBehavior="Disabled"
     Title="MauiMidiBirds">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate views:LandingView}"
-        Route="MainPage" />
+    <Shell.FlyoutHeader>
+        <Grid BackgroundColor="#2196F3">
+            <Label Text="MauiMidiBirds" TextColor="White" FontSize="Large" HorizontalOptions="Center" VerticalOptions="Center" />
+        </Grid>
+    </Shell.FlyoutHeader>
+
+    <Shell.ItemTemplate>
+        <DataTemplate>
+            <Grid Padding="12">
+                <Label Text="{Binding Title}" />
+            </Grid>
+        </DataTemplate>
+    </Shell.ItemTemplate>
+
+    <FlyoutItem
+        Title="Landing Page">
+        <ShellContent
+            Title="Landing Page"
+            ContentTemplate="{DataTemplate views:LandingView}"
+            Route="LandingView" />
+    </FlyoutItem>
+
+    <FlyoutItem
+        Title="Play Your Cards">
+        <ShellContent
+            Title="Play Your Cards Right"
+            ContentTemplate="{DataTemplate views:PlayYourCardsView}"
+            Route="PlayYourCardsView" />
+    </FlyoutItem>
+
+
 
 </Shell>
 
