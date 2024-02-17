@@ -5,11 +5,23 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:MauiMidiBirds"
     xmlns:views="clr-namespace:MauiMidiBirds.Views"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     Title="MauiMidiBirds">
 
     <Shell.FlyoutHeader>
-        <Grid BackgroundColor="#2196F3">
-            <Label Text="MauiMidiBirds" TextColor="White" FontSize="Large" HorizontalOptions="Center" VerticalOptions="Center" />
+        <Grid RowDefinitions="Auto, Auto"
+              BackgroundColor="#2196F3">
+            <Label Text="MauiMidiBirds" TextColor="White" FontSize="Large" HorizontalOptions="Center" VerticalOptions="Center" 
+                   Grid.Row="0"/>
+            <toolkit:MediaElement
+                    x:Name="BirdPlayer"
+                    Grid.Row="1"
+                    ShouldAutoPlay="True"
+                    ShouldShowPlaybackControls="True"
+                    Source="{Binding BirdSong}"
+                    HeightRequest="300"
+                    WidthRequest="300"
+            />
         </Grid>
     </Shell.FlyoutHeader>
 

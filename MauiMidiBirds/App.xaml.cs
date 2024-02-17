@@ -7,6 +7,9 @@ public partial class App : Application
 		InitializeComponent();
 
 		MainPage = new AppShell();
+
+		Routing.RegisterRoute(nameof(Views.LandingView), typeof(Views.LandingView));
+        Routing.RegisterRoute(nameof(Views.PlayYourCardsView), typeof(Views.PlayYourCardsView));
 	}
 }
 

@@ -3,6 +3,7 @@ using Commons.Music.Midi;
 using CommunityToolkit.Maui.Views;
 using CommunityToolkit.Mvvm.ComponentModel;
 using MauiMidiBirds.Services;
+using Microsoft.Maui.Dispatching;
 
 namespace MauiMidiBirds.ViewModels;
 
@@ -49,7 +50,16 @@ public partial class BaseViewModel : ObservableObject
             var bird = Data.Birds.Where(b => b.Id == e.Data[1]).FirstOrDefault();
             LatestBird = bird?.CommonName;
 
-            BirdSong = MediaSource.FromResource(bird?.Song);
+            if (Shell.Current is AppShell shell){
+                MediaElement player = shell.GetPlayer();
+
+                player.Dispatcher.Dispatch(() =>
+                {
+                    player.Source = MediaSource.FromResource(bird?.Song);
+                });
+                
+            }
+            
         }
     }
 }
