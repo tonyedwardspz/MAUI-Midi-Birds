@@ -21,6 +21,13 @@
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
 
+        <Image Source="{Binding LatestBirdImage}" 
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+            HeightRequest="500"
+            WidthRequest="500"
+            Aspect="AspectFill"/>
+
     </VerticalStackLayout>
 
 </ContentPage>

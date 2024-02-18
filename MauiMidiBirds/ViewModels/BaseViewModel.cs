@@ -14,6 +14,7 @@ public partial class BaseViewModel : ObservableObject
     [ObservableProperty] public MediaSource? birdSong;
     [ObservableProperty] public bool connected;
     [ObservableProperty] public string? latestBird;
+    [ObservableProperty] public string? latestBirdImage;
 
     public BaseViewModel()
 	{
@@ -50,16 +51,17 @@ public partial class BaseViewModel : ObservableObject
             var bird = Data.Birds.Where(b => b.Id == e.Data[1]).FirstOrDefault();
             LatestBird = bird?.CommonName;
 
+            LatestBirdImage = bird?.Image;
+            
+
             if (Shell.Current is AppShell shell){
                 MediaElement player = shell.GetPlayer();
 
                 player.Dispatcher.Dispatch(() =>
                 {
                     player.Source = MediaSource.FromResource(bird?.Song);
-                });
-                
+                });             
             }
-            
         }
     }
 }
